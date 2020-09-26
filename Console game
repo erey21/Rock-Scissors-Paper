@@ -1,0 +1,82 @@
+#include <iostream>
+#include <cstdlib>
+
+using namespace std;
+
+int main()
+{
+    int score = 0, start = -1, ran = 0, choice = 0;
+   
+    cout << "Hello, welcome to the game!\n";
+    cout << "Press: \'0\' for exit \n";
+    cout << "Press: \'1\' to Start \n";
+    cin >> start;
+
+    if (start == 0) {
+        cout << "Your score: " << score << "\n";              
+        cout << "Try again in the next time! See You\n";      
+            
+    }
+
+    while (start == 1) {
+            cout << endl << endl;
+            cout << "Choose your things: \n";
+            cout << "1 - \"Rock\" \n";
+            cout << "2 - \"Scissors\" \n";
+            cout << "3 - \"Paper\" \n";
+            cout << "Press \'0\' to exit \n";
+
+            cin >> choice;
+
+            if (choice == 0) {
+                cout << endl;
+                cout << "\nYour score: " << score << "\n";
+
+                if (score > 5) {
+                    cout << endl;
+                    cout << "\nGood game! See You!\n";
+                }
+                else {
+                    cout << endl;
+                    cout << "\nTry again in the next time! See You!\n";                    
+                }
+                break;
+            }
+
+            ran = 1 + rand() % (3 - 1);
+            
+            if (choice == 1 && ran == 2) {
+                cout << "You win!\n";
+                    score++;
+            }
+            else if (choice == 1 && ran == 1) {
+                cout << "Draw \n";
+            }
+            else if (choice == 1 && ran == 3) {
+                cout << "You lose\n";
+            }
+
+            if(choice == 2 && ran == 1){
+                cout << "You lose!\n";
+            }
+            else if (choice == 2 && ran == 2) {
+                cout << "Draw!\n";
+            }
+            else if (choice == 2 && ran == 3) {
+                cout << "You win!\n";
+                score++;
+            }
+
+            if (choice == 3 && ran == 1) {
+                cout << "You win!\n";
+                score++;
+            }
+            else if (choice == 3 && ran == 2) {
+                cout << "You lose!\n";               
+            }
+            else if (choice == 3 && ran == 3) {
+                cout << "Draw!\n";
+            }          
+        }
+    return 0;
+}
